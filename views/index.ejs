@@ -1,0 +1,30 @@
+<%include ./partials/header%>
+
+<div class="ui main text container">
+    <div class="ui huge header">RESTful Blog</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <%posts.forEach(post => {%>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%=post.image%>" alt="">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blog/<%=post._id%>"><%=post.title%></a>
+                        <div class="meta">
+                            <span><%=post.date.toDateString()%></span>
+                        </div>
+                        <div class="description">
+                            <p><%-post.body.substring(0,100)%>...</p>
+                        </div>
+                        <div class="extra">
+                            <a href="/blog/<%=post._id%>">More...</a>
+                        </div>
+                    </div>
+                </div>
+            <%});%>
+        </div>
+    </div>
+</div>
+
+<%include ./partials/footer%>
